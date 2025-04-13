@@ -4618,7 +4618,7 @@ def read_config_from_file(args: argparse.Namespace, parser: argparse.ArgumentPar
         logger.info(f"{config_path} not found.")
         exit(1)
 
-    logger.info(f"Loading settings from dev")
+    
     config_dict = toml.loads(Path(config_path).read_text(encoding="utf-8"))
     logger.info(f"Loading settings from dev success")
     # combine all sections into one
