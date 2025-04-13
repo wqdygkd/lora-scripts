@@ -32,6 +32,8 @@ import toml
 
 from tqdm import tqdm
 
+from pathlib import Path
+
 import torch
 from library.device_utils import init_ipex, clean_memory_on_device
 
@@ -4009,10 +4011,10 @@ def read_config_from_file(args: argparse.Namespace, parser: argparse.ArgumentPar
         logger.info(f"{config_path} not found.")
         exit(1)
 
-    logger.info(f"Loading settings from {config_path}...")
+    logger.info(f"Loading settings")
     with open(config_path, "r", encoding="utf-8") as f:
         config_dict = toml.load(f)
-
+    logger.info(f"Loading settings success")
     # combine all sections into one
     ignore_nesting_dict = {}
     for section_name, section_dict in config_dict.items():
