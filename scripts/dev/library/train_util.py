@@ -23,7 +23,7 @@ import hashlib
 import subprocess
 from io import BytesIO
 import toml
-
+from pathlib import Path
 # from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from tqdm import tqdm
@@ -4618,10 +4618,10 @@ def read_config_from_file(args: argparse.Namespace, parser: argparse.ArgumentPar
         logger.info(f"{config_path} not found.")
         exit(1)
 
-    logger.info(f"Loading settings from {config_path}...")
+    logger.info(f"Loading settings from dev")
     with open(config_path, "r", encoding="utf-8") as f:
         config_dict = toml.load(f)
-
+    logger.info(f"Loading settings from dev success")
     # combine all sections into one
     ignore_nesting_dict = {}
     for section_name, section_dict in config_dict.items():
