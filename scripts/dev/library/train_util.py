@@ -4619,8 +4619,7 @@ def read_config_from_file(args: argparse.Namespace, parser: argparse.ArgumentPar
         exit(1)
 
     logger.info(f"Loading settings from dev")
-    with open(config_path, "r", encoding="utf-8") as f:
-        config_dict = toml.load(f)
+    config_dict = toml.loads(Path(config_path).read_text(encoding="utf-8"))
     logger.info(f"Loading settings from dev success")
     # combine all sections into one
     ignore_nesting_dict = {}
