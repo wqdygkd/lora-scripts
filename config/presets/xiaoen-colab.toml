@@ -1,0 +1,25 @@
+# 模板显示的信息
+[metadata]
+name = "xioaen" # 模板名称
+version = "0.0.1" # 模板版本
+author = "c" # 模板作者
+# train_type 参数可以设置 lora-basic，lora-master，flux-lora 等内容。用于过滤显示的。不填就全部显示
+# train_type = ""
+description = "这是一个样例模板，提高训练分辨率。如果你想加入自己的模板，可以按照 config/presets 中的文件，修改后前往 Github 发起 PR"
+
+# 模板配置内容。请只填写修改了的内容，未修改无需填写。
+[data]
+pretrained_model_name_or_path = "/content/models/unet/flux1-dev-fp8.safetensors"
+ae = "/content/models/vae/ae.safetensors"
+clip_l = "/content/models/text_encoders/clip_l.safetensors"
+t5xxl = "/content/models/text_encoders/t5xxl_fp8_e4m3fn.safetensors"
+train_data_dir = "/content/drive/MyDrive/xiaoen"
+resolution = "512,512"
+output_dir = "/content/drive/MyDrive/xiaoen-o"
+save_every_n_epochs = 1
+save_state = true
+sample_steps = 20
+sample_sampler = "euler"
+sample_every_n_epochs = 1
+
+
