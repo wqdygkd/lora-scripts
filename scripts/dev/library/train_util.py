@@ -24,6 +24,7 @@ import subprocess
 from io import BytesIO
 import toml
 from pathlib import Path
+from mikazuki.log import log
 # from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from tqdm import tqdm
@@ -4620,7 +4621,8 @@ def read_config_from_file(args: argparse.Namespace, parser: argparse.ArgumentPar
 
 
     config_dict = toml.loads(Path(config_path).read_text(encoding="utf-8"))
-    logger.info(f"Loading settings success")
+
+    log.info("Loading settings success1")
     # combine all sections into one
     ignore_nesting_dict = {}
     for section_name, section_dict in config_dict.items():
